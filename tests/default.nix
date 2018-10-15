@@ -1,4 +1,4 @@
-{ yarn2nix }:
+{ yarn2nix, fetchFromGitHub }:
 with builtins;
 let
   build = names: map buildEntry names;
@@ -21,4 +21,5 @@ in
   }).package-one;
 } // {
   duplicate-pkgs = import ./duplicate-pkgs { inherit yarn2nix; };
+  test-ifd-simple = import ./test-ifd-simple { inherit yarn2nix fetchFromGitHub; };
 }
